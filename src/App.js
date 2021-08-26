@@ -1,11 +1,16 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [showText, setShowText] = useState(false)
+
+  const handleClick = () => {
+    setShowText(!showText)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,6 +22,8 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={handleClick}>click me</button>
+        {showText && <div>You clicked the button</div>}
       </header>
     </div>
   );

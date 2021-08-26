@@ -1,12 +1,4 @@
-import { useState } from 'react';
-
-const Button = ({ text }) => {
-  const [showText, setShowText] = useState(false)
-
-  const handleClick = () => {
-    setShowText(!showText)
-  }
-
+const Button = ({ text, handleClick }) => {
   return <button onClick={handleClick}>{text}</button>
 }
 

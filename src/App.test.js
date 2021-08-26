@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import App from './App';
 
 describe('<App />', () => {
@@ -7,27 +7,29 @@ describe('<App />', () => {
     render(<App />);
 
     const linkElement = screen.getByText(/learn react/i);
-    // const linkElement = screen.getByText('learn react');
+
     expect(linkElement).toBeInTheDocument();
   });
 
-  // it('renders the button', () => {
-  //   render(<App />)
+  it('renders the button', () => {
+    const { getByText } = render(<App />)
 
-  //   const button = screen.getByText("click me")
+    const button = getByText("click me")
 
-  //   expect(button).toBeInTheDocument()
-  // });
+    expect(button).toBeInTheDocument()
+  });
 
-  // it('clicks the button', () => {
-  //   render(<App />)
+  it('clicks the button', () => {
+    render(<App />)
+    screen.debug()
+    expect(() => screen.getByText("You clicked the button")).toThrowError()
 
-  //   const button = screen.getByText("click me")
+    const button = screen.getByText("click me")
 
-  //   userEvent.click(button)
+    userEvent.click(button)
 
-  //   const revealedText = screen.getByText("You clicked the button")
+    const revealedText = screen.getByText("You clicked the button")
 
-  //   expect(revealedText).toBeInTheDocument()
-  // });
+    expect(revealedText).toBeInTheDocument()
+  });
 })

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Button from './Button'
 
 function App() {
   const [showText, setShowText] = useState(false)
@@ -22,7 +23,7 @@ function App() {
         >
           Learn React
         </a>
-        <button onClick={handleClick}>click me</button>
+        <Button handleClick={handleClick} text={'click me'}/>
         {showText && <div>You clicked the button</div>}
       </header>
     </div>

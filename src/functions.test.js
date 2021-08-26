@@ -19,5 +19,5 @@ test('adding positive numbers is not zero', () => {
 });
 
 test('adds 1', () => {
-  expect(addOne(5)).toBe(6)
+  expect(addOne(5)).toBe(7)
 });
